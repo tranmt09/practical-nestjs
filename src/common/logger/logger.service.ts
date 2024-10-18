@@ -1,9 +1,10 @@
-import { LoggerService as BaseLoggerService, Injectable } from '@nestjs/common';
-import { createLogger, format, Logger, transports } from 'winston';
+import { Logger, createLogger, format, transports } from 'winston';
 import * as Transport from 'winston-transport';
 
+import { LoggerService as ILoggerService, Injectable } from '@nestjs/common';
+
 @Injectable()
-export class LoggerService implements BaseLoggerService {
+export class LoggerService implements ILoggerService {
   private readonly _logger: Logger;
 
   constructor() {

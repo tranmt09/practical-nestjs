@@ -1,10 +1,12 @@
-import { HttpExceptionFilter } from '@/common/filters';
-import { LoggerService } from '@/common/logger';
-import { setupSwagger } from '@/setup-swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
+
+import { HttpExceptionFilter } from '@/common/filters';
+import { LoggerService } from '@/common/logger';
+
 import { AppModule } from './app.module';
+import { setupSwagger } from './setup-swagger';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
