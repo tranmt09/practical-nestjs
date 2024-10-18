@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { LoggerModule } from '@/common/logger';
 import { UserModule } from '@/features/user/user.module';
+import { LoggerModule } from '@/infra/logger';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+
+const infrastructureModules = [LoggerModule];
 
 @Module({
   imports: [
@@ -14,8 +16,8 @@ import { AppService } from './app.service';
       cache: true,
       expandVariables: true,
     }),
+    ...infrastructureModules,
     UserModule,
-    LoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

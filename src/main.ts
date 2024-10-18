@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
 import { HttpExceptionFilter } from '@/common/filters';
-import { LoggerService } from '@/common/logger';
+import { LoggerService } from '@/infra/logger';
 
 import { AppModule } from './app.module';
 import { setupSwagger } from './setup-swagger';
